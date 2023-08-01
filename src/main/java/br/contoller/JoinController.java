@@ -55,14 +55,14 @@ public class JoinController extends HttpServlet {
 		
 		int result = service.insertMember(member);
 		if(result > 0) {
-			response.sendRedirect("join_Complite.html");
-//			request.getRequestDispatcher("/member/join_Complite.html").forward(request, response);
-			System.out.println("성공");
+			request.setAttribute("title", "회원가입 성공");
+			request.setAttribute("msg", "회원가입이 완료되었습니다.");
+			response.sendRedirect("/common/serviceResult.do");
 		} else {
 			// 실패
-			System.out.println("실패");
+			request.setAttribute("title", "회원가입 실패");
 			request.setAttribute("msg", "회원가입 실패했어요");
-			request.getRequestDispatcher("/member/serviceFail.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/serviceResult.do").forward(request, response);
 		}
 	}
 

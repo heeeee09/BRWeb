@@ -1,6 +1,6 @@
 package br.model.vo;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class BaskinRobbins {
 	private String memberId;
@@ -11,6 +11,11 @@ public class BaskinRobbins {
 	private String memberEmail;
 	private String memberPhone;
 	private String memberAddress;
+	private Timestamp noticeDate;
+	private String noticeSubject;
+	private String noticeContent;
+	private String noticeWriter;
+	private Timestamp answerDate;
 
 	public BaskinRobbins() {
 	}
@@ -34,6 +39,15 @@ public class BaskinRobbins {
 		this.memberPw = memberPw;
 	}
 
+	public BaskinRobbins(String memberId, String memberPw, String memberEmail, String memberPhone,
+			String memberAddress) {
+		super();
+		this.memberId = memberId;
+		this.memberPw = memberPw;
+		this.memberEmail = memberEmail;
+		this.memberPhone = memberPhone;
+		this.memberAddress = memberAddress;
+	}
 
 	public String getMemberId() {
 		return memberId;
@@ -97,6 +111,53 @@ public class BaskinRobbins {
 
 	public void setMemberAddress(String memberAddress) {
 		this.memberAddress = memberAddress;
+	}
+
+	public Timestamp getNoticeDate() {
+		return noticeDate;
+	}
+
+	public void setNoticeDate(Timestamp noticeDate) {
+		this.noticeDate = noticeDate;
+	}
+
+	public String getNoticeSubject() {
+		return noticeSubject;
+	}
+
+	public void setNoticeSubject(String noticeSubject) {
+		this.noticeSubject = noticeSubject;
+	}
+
+	public String getNoticeContent() {
+		return noticeContent;
+	}
+
+	public void setNoticeContent(String noticeContent) {
+		this.noticeContent = noticeContent;
+	}
+
+	public Timestamp getAnswerDate() {
+		return answerDate;
+	}
+
+	public void setAnswerDate(Timestamp answerDate) {
+		this.answerDate = answerDate;
+	}
+
+	public String getNoticeWriter() {
+		return noticeWriter;
+	}
+
+	public void setNoticeWriter(String noticeWriter) {
+		this.noticeWriter = noticeWriter;
+	}
+
+	@Override
+	public String toString() {
+		return "BaskinRobbins [memberId=" + memberId + ", memberPw=" + memberPw + ", memberName=" + memberName
+				+ ", memberBirth=" + memberBirth + ", memberGender=" + memberGender + ", memberEmail=" + memberEmail
+				+ ", memberPhone=" + memberPhone + ", memberAddress=" + memberAddress + "]";
 	}
 
 }

@@ -24,7 +24,12 @@
                 <a href="#"><img id="logoimg" onclick="logoLink()" src="../resource/image/header_Logo.png" alt="로고이미지"></a>
             </div>
             <div id="login">
+            	<c:if test="${sessionScope.memberId eq null}">
                 <a href="#" onclick="loginLink()" style="color: #F04DA3">LOGIN</a>
+                </c:if>
+            	<c:if test="${sessionScope.memberId ne null}">
+                <a href="/member/logout.do" style="color: #F04DA3">LOGOUT</a>
+                </c:if>
             </div>
             <div id="mypage">
                 <a href="#" onclick="mypageLink()">MYPAGE</a>
@@ -47,55 +52,61 @@
             <div id="joinBox">
             <p>회원 정보 수정</p>
             <form action="/member/modify.do" method="post">
-            <div id="join_info">
-                <div id="id" class="infoBox">
-                    <label for="user-id" class="labels">아이디</label>
-                    <input type="text" value="${member.memberId }" readonly>
-                </div>
-                <div id="line"></div>
-                <div id="pw" class="infoBox">
-                    <label for="user-pw" class="labels">비밀번호</label>
-                    <input type="password" placeholder="  비밀번호를 입력해주세요">
-                </div>
-                <div id="line"></div>
-                <div id="pw-confirm" class="infoBox">
-                    <label for="user-pw-confirm" class="labels">비밀번호 확인</label>
-                    <input type="password" placeholder="  비밀번호를 다시 입력해주세요">
-                </div>
-                <div id="line"></div>
-                <div id="name" class="infoBox">
-                    <label for="user-name" class="labels">이름</label>
-                    <input type="text"  value="${member.memberName }" readonly>
-                </div>
-                <div id="line"></div>
-                <div id="birthday" class="infoBox">
-                    <label for="user-birthday" class="labels">생년월일</label>
-                    <input type="date" value="${member.memberId }" readonly>
-                </div>
-                <div id="line"></div>
-                <div id="gender" class="infoBox">
-                    <label for="user-gender" class="labels">성별</label>
-					<input type="hidden" value="${member.memberGender }" name="member-gender" id="member-gender">
-					<c:if test="${member.memberGender eq '남자'}" >남자</c:if>
-					<c:if test="${member.memberGender eq '여자'}">여자</c:if>
-                </div>
-                <div id="line"></div>
-                <div id="email" class="infoBox">
-                    <label for="user-email" class="labels">이메일</label>
-                    <input type="text">
-                </div>
-                <div id="line"></div>
-                <div id="tell" class="infoBox">
-                    <label for="uer-tell" class="labels">연락처</label>
-                    <input type="text">
-                </div>
-                <div id="line"></div>
-            </div>
-            <div id="button">
-                <button type="submit" value="수정하기"><a href="/user_Information_Modify_Complite.html" class="whiteFont">수정하기</a></button>
+	            <div id="join_info">
+	                <div id="id" class="infoBox">
+	                    <label for="user-id" class="labels">아이디</label>
+	                    <input type="text" value="${sessionScope.memberId }" readonly>
+	                </div>
+	                <div id="line"></div>
+	                <div id="pw" class="infoBox">
+	                    <label for="user-pw" class="labels">비밀번호</label>
+	                    <input type="password" name="member-pw" placeholder="  수정할 비밀번호를 입력해주세요">
+	                </div>
+	                <div id="line"></div>
+	                <div id="pw-confirm" class="infoBox">
+	                    <label for="user-pw-confirm" class="labels">비밀번호 확인</label>
+	                    <input type="password" placeholder="  수정할 비밀번호를 다시 입력해주세요">
+	                </div>
+	                <div id="line"></div>
+	                <div id="name" class="infoBox">
+	                    <label for="user-name" class="labels">이름</label>
+	                    <input type="text"  value="${sessionScope.memberName }" readonly>
+	                </div>
+	                <div id="line"></div>
+	                <div id="birthday" class="infoBox">
+	                    <label for="user-birthday" class="labels">생년월일</label>
+	                    <p>${sessionScope.memberBirth }</p>
+	                </div>
+	                <div id="line"></div>
+	                <div id="gender" class="infoBox">
+	                    <label for="user-gender" class="labels">성별</label>
+						<input type="hidden" value="${sessionScope.memberGender }" name="member-gender" id="member-gender" readonly>
+						<c:if test="${sessionScope.memberGender eq 'M'}" >남자</c:if>
+						<c:if test="${sessionScope.memberGender eq 'F'}">여자</c:if>
+	                </div>
+	                <div id="line"></div>
+	                <div id="email" class="infoBox">
+	                    <label for="user-email" class="labels">이메일</label>
+	                    <input type="text" name="member-email">
+	                </div>
+	                <div id="line"></div>
+	                <div id="tell" class="infoBox">
+	                    <label for="uer-tell" class="labels">연락처</label>
+	                    <input type="text" name="member-phone">
+	                </div>
+	                <div id="line"></div>
+	                <div id="address" class="infoBox">
+	                    <label for="uer-address" class="labels">주소</label>
+	                    <input type="text" name="member-address" >
+	                </div>
+	                <div id="line"></div>
+	            </div>
+	            <div id="button">
+	                <button type="submit" value="수정하기">수정하기</button>
+            </form>
+<!--                 <button type="submit" value="수정하기"><a href="/user_Information_Modify_Complite.html" class="whiteFont">수정하기</a></button> -->
                 <button type="submit" id="prevBtn"><a href="/member/myPage.do" class="whiteFont">이전 페이지로 이동</button></a>
             </div>
-            </form>
             </div>
         </section>
         <footer class="flex">

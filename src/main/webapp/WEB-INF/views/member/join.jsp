@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,7 +20,12 @@
                 <a href="#"><img id="logoimg" onclick="logoLink()" src="../resource/image/header_Logo.png" alt="로고이미지"></a>
             </div>
             <div id="login">
+            	<c:if test="${sessionScope.memberId eq null}">
                 <a href="#" onclick="loginLink()" style="color: #F04DA3">LOGIN</a>
+                </c:if>
+            	<c:if test="${sessionScope.memberId ne null}">
+                <a href="/member/logout.do" style="color: #F04DA3">LOGOUT</a>
+                </c:if>
             </div>
             <div id="mypage">
                 <a href="#" onclick="mypageLink()">MYPAGE</a>
@@ -121,7 +127,7 @@
             location.href = "../index.jsp"
         }
         function loginLink() {
-            location.href = "./login.jsp"
+            location.href = "/login.do"
         }
         function mypageLink() {
             location.href = "./myPage.jsp"

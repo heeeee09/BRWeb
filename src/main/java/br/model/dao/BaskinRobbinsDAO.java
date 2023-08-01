@@ -38,19 +38,45 @@ public class BaskinRobbinsDAO {
 		return result;
 	}
 
-	public int deleteMember(Connection conn, BaskinRobbins member) {
+	public int deleteMember(Connection conn, String memberId, String memberPw) {
 		String query = "DELETE FROM BR_MEMBER_TBL WHERE MEMBER_ID=? AND MEMBER_PWD=?";
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, member.getMemberId());
-			pstmt.setString(2, member.getMemberPw());
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, memberPw);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+
+	public int oneMemberModify(Connection conn, BaskinRobbins memberEdit) {
+		String query = "UPDATE BR_MEMBER_TBL SET MEMBER_PWD=?, MEMBER_EMAIL=?, MEMBER_PHONE=?, MEMBER_ADDRESS=? WHERE MEMBER_ID=?";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberEdit.getMemberPw());
+			pstmt.setString(2, memberEdit.getMemberEmail());
+			pstmt.setString(3, memberEdit.getMemberPhone());
+			pstmt.setString(4, memberEdit.getMemberAddress());
+			pstmt.setString(5, memberEdit.getMemberId());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
 			try {
 				pstmt.close();
 			} catch (SQLException e) {
@@ -81,6 +107,25 @@ public class BaskinRobbinsDAO {
 		return mOne;
 	}
 	
+	public BaskinRobbins checkPassword(Connection conn, String memberId, String pwCheck) {
+		String query = "SELECT * FROM BR_MEMBER_TBL WHERE MEMBER_ID=? AND MEMBER_PWD=?";
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		BaskinRobbins mOne = null;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, pwCheck);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				mOne = rsetToMember(rset);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return mOne;
+	}
+
 	public BaskinRobbins rsetToMember(ResultSet rset) throws SQLException {
 		BaskinRobbins member = new BaskinRobbins();
 		member.setMemberId(rset.getString("MEMBER_ID"));
@@ -92,6 +137,12 @@ public class BaskinRobbinsDAO {
 		member.setMemberPhone(rset.getString("MEMBER_PHONE"));
 		member.setMemberAddress(rset.getString("MEMBER_ADDRESS"));
 		return member;
+	}
+
+	public int noticeInsert(BaskinRobbins notice) {
+		String query = "INSERT INTO BR_NOTICE_TBL VALUES(?, )";
+		int result = 0;
+		return result;
 	}
 
 }

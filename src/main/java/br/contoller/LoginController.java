@@ -43,6 +43,7 @@ public class LoginController extends HttpServlet {
 		String memberId = request.getParameter("member-id");
 		String memberpw = request.getParameter("member-pw");
 		
+		
 		BaskinRobbins member = new BaskinRobbins(memberId, memberpw);
 		
 		BaskinRobbinsService service = new BaskinRobbinsService();
@@ -51,12 +52,15 @@ public class LoginController extends HttpServlet {
 		if(result != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("memberId", result.getMemberId());
+			session.setAttribute("memberPw", result.getMemberPw());
 			session.setAttribute("memberName", result.getMemberName());
+			session.setAttribute("memberBirth", result.getMemberBirth());
+			session.setAttribute("memberGender", result.getMemberGender());
 			response.sendRedirect("/index.jsp");
 		}else {
-			System.out.println("실패");
-			request.setAttribute("msg", "로그인 실패했어요");
-			request.getRequestDispatcher("/member/serviceFail.jsp").forward(request, response);
+			request.setAttribute("title", "로그인 실패");
+			request.setAttribute("msg", "아이디 또는 비밀번호가 틀립니다.");
+			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
 		}
 	}
 

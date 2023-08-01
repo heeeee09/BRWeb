@@ -1,20 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시글이 작성되었습니다</title>
+    <title>회원 탈퇴</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../resource/css/join_complite.css">
+    <link rel="stylesheet" href="../resource/css/account_delete.css">
     <link rel="stylesheet" href="../resource/css/reset.css">
     <link rel="stylesheet" href="../resource/css/logo_nav_footer.css">
-    <style>
-        #listMove {
-            background-color: #402022;
-        }
-    </style>
 </head>
 <body>
     <div id="container">
@@ -23,7 +20,12 @@
                 <a href="#"><img id="logoimg" onclick="logoLink()" src="../resource/image/header_Logo.png" alt="로고이미지"></a>
             </div>
             <div id="login">
+            	<c:if test="${sessionScope.memberId eq null}">
                 <a href="#" onclick="loginLink()" style="color: #F04DA3">LOGIN</a>
+                </c:if>
+            	<c:if test="${sessionScope.memberId ne null}">
+                <a href="/member/logout.do" style="color: #F04DA3">LOGOUT</a>
+                </c:if>
             </div>
             <div id="mypage">
                 <a href="#" onclick="mypageLink()">MYPAGE</a>
@@ -43,12 +45,23 @@
             </nav>
         </header>
         <section>
-            <div id="compliteBox" action="/member/accountDeleteComplite.do">
-                <p id="complite">회원 탈퇴 되었습니다</p>
-                <div id="button">
-                    <button><a href="/index.jsp" class="whiteFont">메인 화면으로 이동</a></button>
+            <div>
+                <div id="deletePage">
+                    <p>회원 탈퇴</p>
+                    <form action="/member/delete.do" method="post">
+	                    <div id="deleteBox">
+	                        <div id="pwBox1" class="pwBoxs">
+	                            <label for="password">비밀번호</label>
+	                            <input type="password" name="member-pw-check" placeholder="  비밀번호를 입력해주세요">
+	                        </div>
+	                        <div id="line"></div>
+	                    </div>
+	                    <div id="buttons">
+	                        <button onclick="deleteBtn()">탈퇴하기</button>
+	                        <a href="/member/myPage.do"><button id="back">이전 페이지로<br>이동</button></a>
+	                    </div>
+                    </form>
                 </div>
-
             </div>
         </section>
         <footer class="flex">
@@ -70,24 +83,35 @@
             </section>
         </footer>
     </div>
+
     <script>
         function logoLink() {
             location.href = "/index.jsp"
         }
         function loginLink() {
-            location.href = "/member/login.do"
+            location.href = "/member/login.jsp"
         }
         function mypageLink() {
             location.href = "/member/myPage.do"
         }
         function basketLink() {
-            location.href = "./myBasket.html"
+            location.href = "./myBasket.jsp"
         }
         function menuLink() {
             location.href = "../product/menu.html"
         }
         function storeLink() {
             location.href = "../etc/storeSearch.html"
+        }
+        function deleteBtn() {
+            let left = (screen.availWidth -450) / 2;
+            let top = (screen.availHeight -400) / 2;
+            var viewOpt = "left=" + left + ", top=" + top + ", width=450, height=400";
+            if(${sessionScope.memberPw}==${member-pw-check}){
+	            window.open("/member/delete.do", viewOpt)
+            }else{
+            	location.href = "/accountDeleteComplite.jsp";
+            }
         }
     </script>
 </body>

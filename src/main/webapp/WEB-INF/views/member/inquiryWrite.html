@@ -4,16 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원 정보 수정</title>
+    <title>1:1 문의 작성하기</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../resource/css/join_complite.css">
+    <link rel="stylesheet" href="../resource/css/inquiryWrite.css">
     <link rel="stylesheet" href="../resource/css/reset.css">
     <link rel="stylesheet" href="../resource/css/logo_nav_footer.css">
-    <style>
-        #prevBtn {
-            background-color: #402022;
-        }
-    </style>
 </head>
 <body>
     <div id="container">
@@ -42,10 +37,18 @@
             </nav>
         </header>
         <section>
-            <div id="compliteBox">
-                <p id="complite">회원 정보 수정이 완료되었습니다</p>
-                <div id="button">
-                    <button><a href="./myPage.jsp" class="whiteFont">마이페이지로 이동</a></button>
+            <div id="inquiryBox">
+                <p>1:1 문의하기</p>
+                <div id="line1"></div>
+                    <div id="titles">
+                        <label for="">제목</label>
+                        <input id="titleBox" type="text" placeholder="  게시글의 제목을 입력해주세요">
+                    </div>    
+                    <div>
+                        <input type="area" id="writeBox"  placeholder="문의내용을 작성해주세요. 욕설 및 비방은 무통보 삭제될 수 있습니다.">
+                    </div>
+                <div id="buttonBox">
+                    <a href="./inquiryWrite_Complite.html"><button type="submit" id="write">1:1 문의하기</button></a>
                 </div>
             </div>
         </section>
@@ -68,6 +71,7 @@
             </section>
         </footer>
     </div>
+    
     <script>
         function logoLink() {
             location.href = "../index.jsp"

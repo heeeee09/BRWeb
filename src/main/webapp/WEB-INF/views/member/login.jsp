@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,12 @@
                 <a href="#"><img id="logoimg" onclick="logoLink()" src="../resource/image/header_Logo.png" alt="로고이미지"></a>
             </div>
             <div id="login">
+            	<c:if test="${sessionScope.memberId eq null}">
                 <a href="#" onclick="loginLink()" style="color: #F04DA3">LOGIN</a>
+                </c:if>
+            	<c:if test="${sessionScope.memberId ne null}">
+                <a href="/member/logout.do" style="color: #F04DA3">LOGOUT</a>
+                </c:if>
             </div>
             <div id="mypage">
                 <a href="#" onclick="mypageLink()">MYPAGE</a>
@@ -58,7 +64,7 @@
 	                        </div>
 	                    </div>
 	                    <div id="line"></div>
-	                    <button id="loginbtn" type="submit" onclick="success()">로그인</button></a>
+	                    <button id="loginbtn" type="submit">로그인</button></a>
 	                </div>
                 </form>
                 	     <a href="/member/registor.do"><button id="pwbtn">회원가입</button></a>
@@ -103,12 +109,12 @@
         function storeLink() {
             location.href = "../etc/storeSearch.html"
         }
-        function success() {
-            let left = (screen.availWidth -400) / 2;
-            let top = (screen.availHeight -300) / 2;
-            var viewOpt = "left=" + left + ", top=" + top + ", width=400, height=300";
-            window.open("/popup/loginSuccess.jsp","", viewOpt)
-        }
+//         function success() {
+//             let left = (screen.availWidth -400) / 2;
+//             let top = (screen.availHeight -300) / 2;
+//             var viewOpt = "left=" + left + ", top=" + top + ", width=400, height=300";
+//             window.open("/popup/loginSuccess.jsp","", viewOpt)
+//         }
     </script>
 </body>
 </html>

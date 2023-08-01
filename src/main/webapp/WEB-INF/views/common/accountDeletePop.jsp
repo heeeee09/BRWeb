@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입 완료</title>
+    <title>${requestScope.title }</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./resource/css/login.css">
     <link rel="stylesheet" href="./resource/css/reset.css">
@@ -53,8 +53,8 @@
     </div>
     <script>
         function accountDelete() {
-            window.opener.location.href="/member/accountDeleteComplite.do"
-            window.close();
+            location.href="/member/deletePop.do";
+//             window.close();
 
         }
     </script>
