@@ -1,4 +1,4 @@
-package br.contoller;
+package br.member.contoller;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.model.service.BaskinRobbinsService;
-import br.model.vo.BaskinRobbins;
+import br.member.model.service.BRMemberService;
+import br.member.model.vo.BRMember;
 
 /**
  * Servlet implementation class Join
@@ -49,9 +49,9 @@ public class JoinController extends HttpServlet {
 		String memberPhone = request.getParameter("member-phone");
 		String memberAddress = request.getParameter("member-address");
 		
-		BaskinRobbins member = new BaskinRobbins(memberId, memberPw, memberName, memberBirth, memberGender, memberEmail, memberPhone, memberAddress);
+		BRMember member = new BRMember(memberId, memberPw, memberName, memberBirth, memberGender, memberEmail, memberPhone, memberAddress);
 		
-		BaskinRobbinsService service = new BaskinRobbinsService();
+		BRMemberService service = new BRMemberService();
 		
 		int result = service.insertMember(member);
 		if(result > 0) {

@@ -52,7 +52,7 @@
                     <div class="mpList"><a href="./myBasket.html">장바구니</a></div>
                     <div class="mpList"><a href="/member/modify.do?${sessionScope.memberId }">회원정보 수정</a></div>
                     <div class="mpList"><a href="/member/delete.do">회원탈퇴</a></div>
-                    <div class="mpList"><a href="/member/noticeList.do">1:1문의 내역</a></div>
+                    <div class="mpList"><a href="/board/boardList.do">1:1문의 내역</a></div>
                 </div>
                 <div id="linecol"></div>
                 <div>

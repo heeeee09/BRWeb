@@ -1,4 +1,4 @@
-package br.contoller;
+package br.member.contoller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

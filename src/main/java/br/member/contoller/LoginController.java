@@ -1,4 +1,4 @@
-package br.contoller;
+package br.member.contoller;
 
 import java.io.IOException;
 
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.model.service.BaskinRobbinsService;
-import br.model.vo.BaskinRobbins;
+import br.member.model.service.BRMemberService;
+import br.member.model.vo.BRMember;
 
 /**
  * Servlet implementation class LoginController
@@ -44,11 +44,11 @@ public class LoginController extends HttpServlet {
 		String memberpw = request.getParameter("member-pw");
 		
 		
-		BaskinRobbins member = new BaskinRobbins(memberId, memberpw);
+		BRMember member = new BRMember(memberId, memberpw);
 		
-		BaskinRobbinsService service = new BaskinRobbinsService();
+		BRMemberService service = new BRMemberService();
 		
-		BaskinRobbins result = service.checkLogin(member);
+		BRMember result = service.checkLogin(member);
 		if(result != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("memberId", result.getMemberId());

@@ -79,7 +79,7 @@
 	                    </tbody>
 	                </table>
 	                <div id="buttonBox">
-	                    <a href="./inquiryWrite.html"><button type="submit" id="write">1:1 문의하기</button></a>
+	                    <a href="/board/boardInsert.do"><button type="submit" id="write">1:1 문의하기</button></a>
 	                </div>
 	            </div>
 	        </section>

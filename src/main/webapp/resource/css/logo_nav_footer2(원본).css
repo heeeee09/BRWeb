@@ -36,28 +36,28 @@ a:visited {
     width: 900px;
 }
 
-#user-category {
-	position: absolute;
-	width: 300px;
-	top: 185px;
-    left: 900px;
-    display: flex;
-/*     justify-content: space-around; */
-    justify-content: flex-end;
-    align-items: flex-start;
+.login {
+    position: absolute;
+    top: 190px;
+    left: 930px;
     font-size: 23px;
     font-family: 'Nanum Gothic', sans-serif;
 }
 
-.user {
-	margin: 5px;
+#mypage {
+    position: absolute;
+    top: 190px;
+    left: 1030px;
+    font-size: 23px;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 #basketlink {
-	position: relative;
-	bottom: 30px;
-    width: 70px;
+    position: absolute;
+    width: 80px;
     height: 65px;
+    top: 160px;
+    left: 1120px;
 }
 
 #menu {

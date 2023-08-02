@@ -1,8 +1,8 @@
-package br.model.vo;
+package br.member.model.vo;
 
 import java.sql.Timestamp;
 
-public class BaskinRobbins {
+public class BRMember {
 	private String memberId;
 	private String memberPw;
 	private String memberName;
@@ -17,10 +17,10 @@ public class BaskinRobbins {
 	private String noticeWriter;
 	private Timestamp answerDate;
 
-	public BaskinRobbins() {
+	public BRMember() {
 	}
 
-	public BaskinRobbins(String memberId, String memberPw, String memberName, String memberBirth, String memberGender,
+	public BRMember(String memberId, String memberPw, String memberName, String memberBirth, String memberGender,
 			String memberEmail, String memberPhone, String memberAddress) {
 		super();
 		this.memberId = memberId;
@@ -33,13 +33,13 @@ public class BaskinRobbins {
 		this.memberAddress = memberAddress;
 	}
 
-	public BaskinRobbins(String memberId, String memberPw) {
+	public BRMember(String memberId, String memberPw) {
 		super();
 		this.memberId = memberId;
 		this.memberPw = memberPw;
 	}
 
-	public BaskinRobbins(String memberId, String memberPw, String memberEmail, String memberPhone,
+	public BRMember(String memberId, String memberPw, String memberEmail, String memberPhone,
 			String memberAddress) {
 		super();
 		this.memberId = memberId;

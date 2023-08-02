@@ -1,21 +1,23 @@
-package br.model.service;
+package br.member.model.service;
 
 import java.sql.Connection;
 
-import br.model.dao.BaskinRobbinsDAO;
-import br.model.vo.BaskinRobbins;
+import br.board.model.vo.BRBoard;
+import br.member.model.dao.BRMemberDAO;
+import br.member.model.vo.BRMember;
 import common.JDBCTemplate;
 
-public class BaskinRobbinsService {
+public class BRMemberService {
 	
-	JDBCTemplate jdbcTemplate;
-	BaskinRobbinsDAO bDao;
-	public BaskinRobbinsService() {
+	private JDBCTemplate jdbcTemplate;
+	private BRMemberDAO bDao;
+	
+	public BRMemberService() {
 		jdbcTemplate = JDBCTemplate.getInstance();
-		bDao = new BaskinRobbinsDAO();
+		bDao = new BRMemberDAO();
 	}
 	
-	public int insertMember(BaskinRobbins member) {
+	public int insertMember(BRMember member) {
 		// TODO Auto-generated method stub
 		Connection conn = jdbcTemplate.createConnection();
 		int result = bDao.insertMember(conn, member);
@@ -29,14 +31,14 @@ public class BaskinRobbinsService {
 		return result;
 	}
 
-	public BaskinRobbins checkLogin(BaskinRobbins member) {
+	public BRMember checkLogin(BRMember member) {
 		Connection conn = jdbcTemplate.createConnection();
-		BaskinRobbins mOne = bDao.checkLogin(conn, member);
+		BRMember mOne = bDao.checkLogin(conn, member);
 		jdbcTemplate.close(conn);
 		return mOne;
 	}
 
-	public int oneMemberModify(BaskinRobbins memberEdit) {
+	public int oneMemberModify(BRMember memberEdit) {
 		Connection conn = jdbcTemplate.createConnection();
 		int result = bDao.oneMemberModify(conn, memberEdit);
 		if(result > 0) {
@@ -52,7 +54,7 @@ public class BaskinRobbinsService {
 		// 로그인 되어 있는 아이디와 확인을 위해 입력한 비밀번호의 값을 체크한다.
 		// 저장된 정보가 있으면 true 리턴, 없으면 false 리턴
 		Connection conn = jdbcTemplate.createConnection();
-		BaskinRobbins check = bDao.checkPassword(conn, memberId, pwCheck);
+		BRMember check = bDao.checkPassword(conn, memberId, pwCheck);
 		if(check != null) {
 			return true;
 		} else {
@@ -72,15 +74,4 @@ public class BaskinRobbinsService {
 		return result;
 	}
 
-	public int noticeInsert(BaskinRobbins notice) {
-		Connection conn = jdbcTemplate.createConnection();
-		int result = bDao.noticeInsert(notice);
-		if(result > 0) {
-			jdbcTemplate.commit(conn);
-		}else {
-			jdbcTemplate.rollback(conn);
-		}
-		jdbcTemplate.close(conn);
-		return result;
-	}
 }

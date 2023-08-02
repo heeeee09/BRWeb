@@ -1,4 +1,4 @@
-package br.contoller;
+package br.member.contoller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.model.service.BaskinRobbinsService;
-import br.model.vo.BaskinRobbins;
+import br.member.model.service.BRMemberService;
+import br.member.model.vo.BRMember;
 
 /**
  * Servlet implementation class ModifyController
@@ -29,7 +29,7 @@ public class ModifyController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/member/userInformationModify.do").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/member/userInformationModify.jsp").forward(request, response);
 	}
 
 	/**
@@ -42,8 +42,8 @@ public class ModifyController extends HttpServlet {
 		String memberEmail = request.getParameter("member-email");
 		String memberPhone = request.getParameter("member-phone");
 		String memberAddress = request.getParameter("member-address");
-		BaskinRobbins memberEdit = new BaskinRobbins(memberId, memberPw, memberEmail, memberPhone, memberAddress);
-		BaskinRobbinsService service = new BaskinRobbinsService();
+		BRMember memberEdit = new BRMember(memberId, memberPw, memberEmail, memberPhone, memberAddress);
+		BRMemberService service = new BRMemberService();
 		int result = service.oneMemberModify(memberEdit);
 		if(result > 0) {
 			// 성공하면 메인페이지

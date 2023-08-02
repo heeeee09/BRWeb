@@ -1,15 +1,16 @@
-package br.model.dao;
+package br.member.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.model.vo.BaskinRobbins;
+import br.board.model.vo.BRBoard;
+import br.member.model.vo.BRMember;
 
-public class BaskinRobbinsDAO {
+public class BRMemberDAO {
 
-	public int insertMember(Connection conn, BaskinRobbins member) {
+	public int insertMember(Connection conn, BRMember member) {
 		
 		String query = "INSERT INTO BR_MEMBER_TBL VALUES(?,?,?,?,?,?,?,?)";
 		PreparedStatement pstmt = null;
@@ -61,7 +62,7 @@ public class BaskinRobbinsDAO {
 	}
 
 
-	public int oneMemberModify(Connection conn, BaskinRobbins memberEdit) {
+	public int oneMemberModify(Connection conn, BRMember memberEdit) {
 		String query = "UPDATE BR_MEMBER_TBL SET MEMBER_PWD=?, MEMBER_EMAIL=?, MEMBER_PHONE=?, MEMBER_ADDRESS=? WHERE MEMBER_ID=?";
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -86,11 +87,11 @@ public class BaskinRobbinsDAO {
 		return result;
 	}
 
-	public BaskinRobbins checkLogin(Connection conn, BaskinRobbins member) {
+	public BRMember checkLogin(Connection conn, BRMember member) {
 		String query = "SELECT * FROM BR_MEMBER_TBL WHERE MEMBER_ID=? AND MEMBER_PWD=?";
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		BaskinRobbins mOne = null;
+		BRMember mOne = null;
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -107,11 +108,11 @@ public class BaskinRobbinsDAO {
 		return mOne;
 	}
 	
-	public BaskinRobbins checkPassword(Connection conn, String memberId, String pwCheck) {
+	public BRMember checkPassword(Connection conn, String memberId, String pwCheck) {
 		String query = "SELECT * FROM BR_MEMBER_TBL WHERE MEMBER_ID=? AND MEMBER_PWD=?";
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		BaskinRobbins mOne = null;
+		BRMember mOne = null;
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, memberId);
@@ -126,8 +127,8 @@ public class BaskinRobbinsDAO {
 		return mOne;
 	}
 
-	public BaskinRobbins rsetToMember(ResultSet rset) throws SQLException {
-		BaskinRobbins member = new BaskinRobbins();
+	public BRMember rsetToMember(ResultSet rset) throws SQLException {
+		BRMember member = new BRMember();
 		member.setMemberId(rset.getString("MEMBER_ID"));
 		member.setMemberPw(rset.getString("MEMBER_PWD"));
 		member.setMemberName(rset.getString("MEMBER_NAME"));
@@ -139,10 +140,5 @@ public class BaskinRobbinsDAO {
 		return member;
 	}
 
-	public int noticeInsert(BaskinRobbins notice) {
-		String query = "INSERT INTO BR_NOTICE_TBL VALUES(?, )";
-		int result = 0;
-		return result;
-	}
 
 }
