@@ -58,24 +58,19 @@
 		                    </tr>
 	                    </thead>
 	                    <tbody>
-		                    <tr>
-		                        <td>2023-05-24</td>
-		                        <td class="titles">제로 아이스크림 출시해주세요</td>
-		                        <td>확인중</td>
-		                        <td><a href="#" class="delete">X</a></td>
-		                    </tr>
-		                    <tr>
-		                        <td>2023-02-07</td>
-		                        <td class="titles">민트초코 단종시켜주세요</td>
-		                        <td>답변완료</td>
-		                        <td><a href="#" class="delete">X</a></td>
-		                    </tr>
-		                    <tr class="lastLisit">
-		                        <td class="lastLisit">2023-01-28</td>
-		                        <td class="titles">콜라맛 아이스크림 출시해주세요</td>
-		                        <td class="lastLisit">답변완료</td>
-		                        <td class="lastLisit"><a href="#" class="delete">X</a></td>
-		                    </tr>
+	                    	<c:forEach var="board" items="${requestScope.bList }">
+							<tr>
+								<td>${board.boardDate }</td>
+								<td><a href="/board/detail.do?boardNo=${board.boardNo }">${board.boardSubject }</a></td>
+								<td>확인중</td>
+								<td>X</td>
+							</tr>
+							</c:forEach>
+							<tr>
+							<td colspan="5" align="center">
+								${pageNavi }
+							</td>
+							</tr>
 	                    </tbody>
 	                </table>
 	                <div id="buttonBox">

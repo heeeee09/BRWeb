@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.board.model.dao.BRBoardDAO;
 import br.board.model.vo.BRBoard;
+import br.board.model.vo.PageData;
 import common.JDBCTemplate;
 
 public class BRBoardService {
@@ -17,11 +18,13 @@ public class BRBoardService {
 		bDao = new BRBoardDAO();
 	}
 
-	public List<BRBoard> selectBoardList(String boardWriter) {
+	public PageData selectBoardList(int currentPage, String boardWriter) {
 		Connection conn = jdbcTemplate.createConnection();
-		List<BRBoard>bList = bDao.selectList(conn, boardWriter);
+		List<BRBoard>bList = bDao.selectBoardList(conn, currentPage, boardWriter);
+		String pageNavi = bDao.generatePageNavi(currentPage);
+		PageData pd = new PageData(bList, pageNavi);
 		jdbcTemplate.close(conn);
-		return bList;
+		return pd;
 	}
 	
 	public int boardInsert(BRBoard board) {
@@ -34,6 +37,11 @@ public class BRBoardService {
 		}
 		jdbcTemplate.close(conn);
 		return result;
+	}
+
+	public PageData selectBoardNavi(int currentPage) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

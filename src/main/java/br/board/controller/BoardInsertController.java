@@ -32,7 +32,7 @@ public class BoardInsertController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/board/boardInsert.do").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/board/boardInsert.jsp").forward(request, response);
 	}
 
 	/**
@@ -40,6 +40,7 @@ public class BoardInsertController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		request.setCharacterEncoding("UTF-8");
 		String boardSubject = request.getParameter("boardSubject");
 		String boardContent = request.getParameter("boardContent");
 		String boardWriter = (String)request.getSession().getAttribute("memberId");
