@@ -17,7 +17,7 @@
 </head>
 <body>
     <div id="container">
-			<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
         <main>
             <section id="main1" class="mains">
                 <a href="./product/menuDetail_10_CottonCandy.html"><img id="monthFlavor" src="./resource/image/main/main_Month_Flavor.png" alt=""></a>
