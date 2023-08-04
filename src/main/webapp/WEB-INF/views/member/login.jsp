@@ -37,33 +37,16 @@
 	                    </div>
 	                    <div id="line"></div>
 	                    <button id="loginbtn" type="submit">로그인</button></a>
+                	     <a href="/member/registor.do"><button id="pwbtn">회원가입</button></a>
 	                </div>
                 </form>
-                	     <a href="/member/registor.do"><button id="pwbtn">회원가입</button></a>
             </section>
         </main>
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
     </div>
 
     <script>
-        function logoLink() {
-            location.href = "/index.jsp"
-        }
-        function loginLink() {
-            location.href = "/member/login.do"
-        }
-        function mypageLink() {
-            location.href = "/member/myPage.do"
-        }
-        function basketLink() {
-            location.href = "./myBasket.html"
-        }
-        function menuLink() {
-            location.href = "/product/menu.html"
-        }
-        function storeLink() {
-            location.href = "../etc/storeSearch.html"
-        }
+  	  <jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
 //         function success() {
 //             let left = (screen.availWidth -400) / 2;
 //             let top = (screen.availHeight -300) / 2;

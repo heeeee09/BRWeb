@@ -78,24 +78,7 @@
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
     </div>
     <script>
-        function logoLink() {
-            location.href = "../index.jsp"
-        }
-        function loginLink() {
-            location.href = "/login.do"
-        }
-        function mypageLink() {
-            location.href = "./myPage.jsp"
-        }
-        function basketLink() {
-            location.href = "./myBasket.html"
-        }
-        function menuLink() {
-            location.href = "../product/menu.html"
-        }
-        function storeLink() {
-            location.href = "../etc/storeSearch.html"
-        }
+ 	   <jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
     </script>
 </body>
 

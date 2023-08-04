@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
  	        <header>
             <div id="logo">
-                <a href="#"><img id="logoimg" onclick="logoLink()" src="./resources/image/header_Logo.png"
+                <a href="#"><img id="logoimg" onclick="logoLink()" src="/resources/image/header_Logo.png"
                         alt="로고이미지"></a>
             </div>
             <div id="user-category">

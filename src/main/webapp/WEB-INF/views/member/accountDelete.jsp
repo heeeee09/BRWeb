@@ -40,24 +40,7 @@
     </div>
 
     <script>
-        function logoLink() {
-            location.href = "/index.jsp"
-        }
-        function loginLink() {
-            location.href = "/member/login.jsp"
-        }
-        function mypageLink() {
-            location.href = "/member/myPage.do"
-        }
-        function basketLink() {
-            location.href = "./myBasket.jsp"
-        }
-        function menuLink() {
-            location.href = "../product/menu.html"
-        }
-        function storeLink() {
-            location.href = "../etc/storeSearch.html"
-        }
+  	  <jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
         function deleteBtn() {
             let left = (screen.availWidth -450) / 2;
             let top = (screen.availHeight -400) / 2;

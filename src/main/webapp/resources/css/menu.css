@@ -41,3 +41,15 @@
     cursor: pointer !important;
     margin-bottom: 50px;
 }
+#menuCategory{
+    display: flex;
+    justify-content: space-around;
+
+}
+.menuCategoryBtn{
+    width: 200px;
+    font-size : 30px;
+}
+.menuCategory{
+    
+}

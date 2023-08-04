@@ -72,24 +72,7 @@
     </div>
 
     <script>
-        function logoLink() {
-            location.href = "/index.jsp"
-        }
-        function loginLink() {
-            location.href = "/member/login.do"
-        }
-        function mypageLink() {
-            location.href = "/member/myPage.do"
-        }
-        function basketLink() {
-            location.href = "./myBasket.html"
-        }
-        function menuLink() {
-            location.href = "../product/menu.html"
-        }
-        function storeLink() {
-            location.href = "../etc/storeSearch.html"
-        }
+		<jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
     </script>
 </body>
 </html>

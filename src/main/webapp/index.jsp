@@ -54,15 +54,15 @@
             <section id="main3" class="mains">
                 <!-- // 베스트 맛 소개 -->
                 <div id="bfLeft" class="bestFlavors">
-                    <a href="./product/menuDetail_03_Rainbow.html"><img class="bfImg" src="./resources/image/menu/레인보우 샤베트.jpg" alt="레인보우 샤베트"></a>
+                    <a href="./product/menuDetail_03_Rainbow.html"><img class="bfImg" src="/resources/image/menu/레인보우 샤베트.jpg" alt="레인보우 샤베트"></a>
                     <div class="img-caption">레인보우 샤베트</div>
                 </div>
                 <div id="bfCenter" class="bestFlavors">
-                    <a href="./product/menuDetail_05_windy.html"><img class="bfImg" src="./resources/image/menu/바람과 함께 사라지다.jpg" alt="레인보우 샤베트"></a>
+                    <a href="./product/menuDetail_05_windy.html"><img class="bfImg" src="/resources/image/menu/바람과 함께 사라지다.jpg" alt="레인보우 샤베트"></a>
                     <div class="img-caption">바람과 함께 사라지다</div>
                 </div>
                 <div id="bfRight" class="bestFlavors">
-                    <a href="./product/menuDetail_09_MomIsAlien.html"><img class="bfImg" src="./resources/image/menu/엄마는외계인.jpg" alt="레인보우 샤베트"></a>
+                    <a href="./product/menuDetail_09_MomIsAlien.html"><img class="bfImg" src="/resources/image/menu/엄마는외계인.jpg" alt="레인보우 샤베트"></a>
                     <div class="img-caption">엄마는 외계인</div>
                 </div>
             </section>
@@ -72,15 +72,15 @@
             <section id="main4" class="mains">
                 <!-- // SNS 이동 -->
                 <div id="" class="SNS">
-                    <a href="https://www.facebook.com/baskinrobbinskr/" target="_blank"><img src="./resources/image/main/sns_facebook.png"
+                    <a href="https://www.facebook.com/baskinrobbinskr/" target="_blank"><img src="/resources/image/main/sns_facebook.png"
                             alt=""></a>
                 </div>
                 <div id="" class="SNS">
-                    <a href="https://twitter.com/BaskinrobbinsKR" target="_blank"><img src="./resources/image/main/sns_twitter.png"
+                    <a href="https://twitter.com/BaskinrobbinsKR" target="_blank"><img src="/resources/image/main/sns_twitter.png"
                             alt=""></a>
                 </div>
                 <div id="" class="SNS">
-                    <a href="https://blog.naver.com/brgirl31" target="_blank"><img src="./resources/image/main/sns_blog.png" alt=""></a>
+                    <a href="https://blog.naver.com/brgirl31" target="_blank"><img src="/resources/image/main/sns_blog.png" alt=""></a>
                 </div>
                 <div id="" class="SNS">
                     <a href="https://www.instagram.com/baskinrobbinskorea/" target="_blank"><img
@@ -91,31 +91,14 @@
                             src="./resources/image/main/sns_youtube.png" alt=""></a>
                 </div>
                 <div id="" class="SNS">
-                    <a href="https://pf.kakao.com/_xjXcmM" target="_blank"><img src="./resources/image/main/sns_kakaotalk.png" alt=""></a>
+                    <a href="https://pf.kakao.com/_xjXcmM" target="_blank"><img src="/resources/image/main/sns_kakaotalk.png" alt=""></a>
                 </div>
             </section>
         </main>
 			<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
     </div>
     <script>
-        function logoLink() {
-            location.href = "/index.jsp";
-        }
-        function loginLink() {
-            location.href = "/member/login.do";
-        }
-        function mypageLink() {
-            location.href = "/member/myPage.do";
-        }
-        function basketLink() {
-            location.href = "./member/myBasket.html";
-        }
-        function menuLink() {
-            location.href = "./product/menu.html";
-        }
-        function storeLink() {
-            location.href = "./etc/storeSearch.html";
-        }
+		<jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
 
         var slideIndex = 1;
         showSlides(slideIndex);
