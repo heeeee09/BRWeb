@@ -8,9 +8,9 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <title>${requestScope.title }</title>
 	    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-	    <link rel="stylesheet" href="../resource/css/join_complite.css">
-	    <link rel="stylesheet" href="../resource/css/reset.css">
-	    <link rel="stylesheet" href="../resource/css/logo_nav_footer.css">
+	    <link rel="stylesheet" href="../resources/css/join_complite.css">
+	    <link rel="stylesheet" href="../resources/css/reset.css">
+	    <link rel="stylesheet" href="../resources/css/logo_nav_footer.css">
 	    <style>
 	        #prevBtn {
 	            background-color: #402022;
@@ -21,7 +21,7 @@
 	    <div id="container">
 	        <header>
 	            <div id="logo">
-	                <a href="#"><img id="logoimg" onclick="logoLink()" src="../resource/image/header_Logo.png" alt="로고이미지"></a>
+	                <a href="#"><img id="logoimg" onclick="logoLink()" src="../resources/image/header_Logo.png" alt="로고이미지"></a>
 	            </div>
             <div id="login">
             	<c:if test="${sessionScope.memberId eq null}">
@@ -35,7 +35,7 @@
 	                <a href="#" onclick="mypageLink()">MYPAGE</a>
 	            </div>
 	            <div id="basket">
-	                <a href="#" onclick="basketLink()"><img  id="basketlink" src="../resource/image/header_Basket_Img.png" alt="장바구니 링크"></a>
+	                <a href="#" onclick="basketLink()"><img  id="basketlink" src="../resources/image/header_Basket_Img.png" alt="장바구니 링크"></a>
 	            </div>
 	            <nav>
 	                <ul id="menu">

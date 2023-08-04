@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../resource/css/login.css">
-    <link rel="stylesheet" href="../resource/css/reset.css">
-    <link rel="stylesheet" href="../resource/css/logo_nav_footer.css">
+    <link rel="stylesheet" href="../resources/css/login.css">
+    <link rel="stylesheet" href="../resources/css/reset.css">
+    <link rel="stylesheet" href="../resources/css/logo_nav_footer.css">
 </head>
 
 <body>
